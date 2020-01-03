@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="example.core.dao.UserDao">
+
+	<sql id="userColumns">
+		a.id,
+		a.name,
+		a.age,
+		a.hobby,
+		a.sex,
+		a.birth_place AS "birthPlace",
+		a.password,
+		a.create_by AS "createBy",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy",
+		a.update_date AS updateDate,
+		a.del_flag AS "delFlag",
+		a.remarks
+	</sql>
+ 
+ <select id="getUser" parameterType="string" resultType="example.core.entity.User">
+   select 
+	<include refid="userColumns"/>
+   from user a
+      where
+      a.name = #{name}
+ </select>
+ 
+ <select id="getUserById" parameterType="string" resultType="example.core.entity.User">
+   select 
+	<include refid="userColumns"/>
+   from user a
+      where
+      a.id = #{id}
+ </select>
+ 
+ <update id="update">
+		UPDATE user SET 	
+			name = #{name},
+			age = #{age},
+			hobby = #{hobby},
+			sex = #{sex},
+			birth_place = #{birthPlace},
+			password = #{password},
+			create_by = #{createBy},
+			create_date = #{createDate},
+			update_by = #{updateBy},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+</update>
+<insert id="insert">
+	INSERT INTO USER (
+	`id`,
+	`name`,
+	`age`,
+	`hobby`,
+	`sex`,
+	`birth_place`,
+	`password`,
+	`create_by`,
+	`create_date`,
+	`update_by`,
+	`del_flag`,
+	`update_date`,
+	`remarks`
+)
+VALUES
+	(
+		#{id},
+		#{name},
+		#{age},
+		#{hobby},
+		#{sex},
+		#{birthPlace},
+		#{password},
+		#{createBy},
+		#{createDate},
+		#{updateBy},
+		#{delFlag},
+		#{updateDate},
+		#{remarks}
+	) 
+</insert>
+
+</mapper>
