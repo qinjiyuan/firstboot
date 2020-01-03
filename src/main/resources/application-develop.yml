@@ -1,10 +1,11 @@
 #服务配置
 server: 
    #接口配置
-   port: 80
+   port: 8090
    tomcat: 
       #解码配置
       uri-encoding: UTF-8
+      max-http-header-size: 8192
    servlet:
       #环境名称配置
       context-path: /firstboot
@@ -21,9 +22,9 @@ spring:
          suffix: .jsp #设置视图解析器后缀
   datasource: 
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://39.97.104.203:3306/firstboot?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/firstboot?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
-    password: 3qaz#QAZ
+    password: 199107120319
     #初始化连接数量，最大最小连接数
     initialSize: 5
     maxActive: 10

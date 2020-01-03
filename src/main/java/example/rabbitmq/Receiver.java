@@ -20,8 +20,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Receiver {
-	@RabbitHandler
-	@RabbitListener(queues = "hello")
+//	@RabbitHandler
+//	@RabbitListener(queues = "hello")
 	public void process(String hello) {
 		System.err.println("Receiver:" + hello);
 	}
@@ -30,7 +30,7 @@ public class Receiver {
 	 * 	使用 @Payload 和 @Headers 注解可以消息(Message)中的 body 与 headers 信息
 	 * @param message
 	 */
-	@RabbitListener(queues = "${log.user.queue.name}",containerFactory = "singleListenerContainer")
+//	@RabbitListener(queues = "${log.user.queue.name}",containerFactory = "singleListenerContainer")
 	 public void consumeUserLogQueue(Message message){
 		
 		    try {

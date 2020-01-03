@@ -104,7 +104,7 @@ public class DruidConfig {
         @SuppressWarnings("unchecked")
 		ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(),"/druid/*");
         servletRegistrationBean.addInitParameter("allow","127.0.0.1");  //设置ip白名单
-        servletRegistrationBean.addInitParameter("deny","192.168.0.19");//设置ip黑名单，优先级高于白名单
+//        servletRegistrationBean.addInitParameter("deny","192.168.0.19");//设置ip黑名单，优先级高于白名单
         //设置控制台管理用户
         servletRegistrationBean.addInitParameter("loginUsername","root");
         servletRegistrationBean.addInitParameter("loginPassword","root");

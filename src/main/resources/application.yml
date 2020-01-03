@@ -1,21 +1,22 @@
 #服务配置
 server: 
    #接口配置
-   port: 80
+   port: 8090
    tomcat: 
       #解码配置
       uri-encoding: UTF-8
+      max-http-header-size: 8192
    servlet:
       #环境名称配置
       context-path: /firstboot
 
 spring: 
    rabbitmq: 
-      host: 192.168.10.131
+      host: localhost
       port: 5672
-      username: springboot
-      password: springboot
-      virtual-host: /testrabbit
+      username: qinjiyuan
+      password: Radiant123
+      virtual-host: /
    listener: 
       concurrency: 10 #并发消费者的初始化值
       max-concurrency: 20 #并发消费者的最大值
@@ -45,49 +46,6 @@ spring:
       view: 
          prefix: /views/ #设置视图解析器路径,从webapp开始
          suffix: .jsp #设置视图解析器后缀
-   datasource: 
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://39.97.104.203:3306/firstboot?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-    username: root
-    password: 3qaz#QAZ
-    #初始化连接数量，最大最小连接数
-    initialSize: 5
-    maxActive: 10
-    minIdle: 3
-    #获取连接等待超时的时间
-    maxWait: 600000
-    #超过时间限制是否回收
-    removeAbandoned: true
-    #超过时间限制多长
-    removeAbandonedTimeout: 180
-    #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
-    timeBetweenEvictionRunsMillis: 600000
-    #配置一个连接在池中最小生存的时间，单位是毫秒
-    minEvictableIdleTimeMillis: 300000
-    #用来检测连接是否有效的sql，要求是一个查询语句
-    validationQuery: SELECT 1 FROM DUAL
-    #申请连接的时候检测
-    testWhileIdle: true
-    #申请连接时执行validationQuery检测连接是否有效，配置为true会降低性能
-    testOnBorrow: false
-    #归还连接时执行validationQuery检测连接是否有效，配置为true会降低性能
-    testOnReturn: false
-    #打开PSCache，并且指定每个连接上PSCache的大小
-    poolPreparedStatements: true
-    maxPoolPreparedStatementPerConnectionSize: 50
-    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
-    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-    #属性类型是字符串，通过别名的方式配置扩展插件，常用的插件有：
-    #监控统计用的filter:stat 日志用的filter:log4j 防御SQL注入的filter:wall
-    filters: stat
-    #druid监控配置 DruidConfig
-    useGlobalDataSourceStat: true
-    # 配置监控服务器
-    stat-view-servlet:
-       login-username: admin
-       login-password: 123456
-       reset-enable: false
-       url-pattern: /druid/*
 
 mybatis: #配置xml文件路径
    config-location: classpath:mybatis/mybatis-config.xml
@@ -118,6 +76,6 @@ log:
 eureka: 
    client: 
       serviceUrl: 
-         defaultZone: http://39.97.104.203:1111/eureka/eureka
+         defaultZone: http://mixedinfos.top:8761/eureka
 
             
